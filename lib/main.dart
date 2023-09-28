@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth_bloc/data/datasources/apidatasource.dart';
+import 'package:flutter_auth_bloc/data/datasources/auth_datasource.dart';
 import 'package:flutter_auth_bloc/presentation/pages/registration_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterBloc(ApiDatasource()),
+      create: (context) => RegisterBloc(AuthDatasource()),
       child: MaterialApp(
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
