@@ -8,6 +8,6 @@ final class CreateProductLoading extends CreateProductState {}
 final class CreateProductLoaded extends CreateProductState {
   final ProductResponseModel productResponseModel;
 
-  CreateProductLoaded(this.productResponseModel);
+  CreateProductLoaded({required this.productResponseModel});
 }
 final class CreateProductError extends CreateProductState {}

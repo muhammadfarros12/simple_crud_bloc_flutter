@@ -8,7 +8,8 @@ class ProductDatasource {
   Future<ProductResponseModel> createProduct(ProductModel model) async {
     final response = await http.post(
       Uri.parse('https://api.escuelajs.co/api/v1/products/'),
-      body: model.toMap(),
+      body: model.toJson(),
+      headers: {'Content-Type':'application/json'}
     );
 
     return ProductResponseModel.fromJson(response.body);
@@ -35,7 +36,7 @@ class ProductDatasource {
       Uri.parse('https://api.escuelajs.co/api/v1/products/'),
     );
 
-    final result = List<ProductResponseModel>.from(jsonDecode(response.body).map((x) =>  ProductResponseModel.fromJson(x))).toList();
+    final result = List<ProductResponseModel>.from(jsonDecode(response.body).map((x) =>  ProductResponseModel.fromMap(x))).toList();
 
     return result;
 

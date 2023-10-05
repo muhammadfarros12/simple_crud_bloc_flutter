@@ -8,9 +8,9 @@ final class GetAllProductInitial extends GetAllProductState {}
 final class GetAllProductLoading extends GetAllProductState {}
 
 final class GetAllProductLoaded extends GetAllProductState {
-  final List<ProductResponseModel> productResponseModel;
+  final List<ProductResponseModel> listProduct;
 
-  GetAllProductLoaded({required this.productResponseModel});
+  GetAllProductLoaded({required this.listProduct});
 }
 
 final class GetAllProductError extends GetAllProductState {}

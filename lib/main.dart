@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_bloc/bloc/login/login_bloc.dart';
+import 'package:flutter_auth_bloc/bloc/product/create_product/create_product_bloc.dart';
+import 'package:flutter_auth_bloc/bloc/product/get_all_product/get_all_product_bloc.dart';
 import 'package:flutter_auth_bloc/bloc/profile/profile_bloc.dart';
 import 'package:flutter_auth_bloc/data/datasources/auth_datasource.dart';
+import 'package:flutter_auth_bloc/data/datasources/product_datasource.dart';
 import 'package:flutter_auth_bloc/data/localsources/auth_local_storage.dart';
 import 'package:flutter_auth_bloc/presentation/pages/home_page.dart';
 import 'package:flutter_auth_bloc/presentation/pages/login_page.dart';
@@ -38,6 +41,12 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider(
           create: (context) => ProfileBloc(AuthDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => CreateProductBloc(ProductDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => GetAllProductBloc(ProductDatasource()),
         ),
       ],
       child: MaterialApp(

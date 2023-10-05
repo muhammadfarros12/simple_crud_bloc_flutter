@@ -15,7 +15,7 @@ class GetAllProductBloc extends Bloc<GetAllProductEvent, GetAllProductState> {
     on<DoGetAllProductEvent>((event, emit) async {
       emit(GetAllProductLoading());
       final result = await productDatasource.getAllProduct();
-      emit(GetAllProductLoaded(productResponseModel: result));
+      emit(GetAllProductLoaded(listProduct: result));
     });
   }
 }
