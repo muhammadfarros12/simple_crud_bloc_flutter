@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_bloc/bloc/register/register_bloc.dart';
 import 'package:flutter_auth_bloc/data/models/request/register_model.dart';
+import 'package:flutter_auth_bloc/presentation/pages/login_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -63,8 +64,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   emailController!.clear();
                   // navigasi
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: Colors.blue,
                       content:
                           Text('success Register with id: ${state.model.id}')));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const LoginPage();
+                  }));
                 }
               },
               builder: (context, state) {
@@ -86,6 +91,20 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                     child: const Text('Register'));
               },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const LoginPage();
+                }));
+              },
+              child: const Text(
+                'Sudah Punya Akun? Login',
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
             )
           ],
         ),
